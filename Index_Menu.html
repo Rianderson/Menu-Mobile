@@ -1,0 +1,36 @@
+ <!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://127.0.0.1:5500/Codigos/CSS/Mobile_style.css">
+</head>
+<body>
+    <header id="Header">
+        <a id="Logo" href="">Logo</a>
+        <nav id="Nav">
+            <!--
+            Por questões de usabilidade e acessibilidade são adicionados
+            os atributos aria junto do Javascript para facilitar e melhorar
+            a experiência de quem precisa de ajuda para saber quais informações
+            existem na tela e quais mais podem ser acessadas.
+            -->
+
+            <button aria-label="Open Menu" id="btn_mobile" aria-haspopup="true"
+             aria-controls="Menu" aria-expanded="false">Menu 
+             <span id="Hamburguer"></span>
+            </button> 
+
+            <ul id="Menu" role="menu">
+                <li><a href="/">Sobre</a></li>
+                <li><a href="/">Produto</a></li>
+                <li><a href="/">Portifolio</a></li>
+                <li><a href="/">Contato</a></li>
+                
+            </ul>
+        </nav>
+    </header>
+    <script src="http://127.0.0.1:5500/Codigos/Javascript/JS_Mobile.js"></script>
+</body>
+</html>

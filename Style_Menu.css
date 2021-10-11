@@ -1,0 +1,119 @@
+
+body, ul { 
+    /* Remoção dos paddings, mudança no tipo de fonte e cor padrão dos elementos
+    envolvidos dentro da tag body e ul.*/   
+    margin: 0px;
+    padding: 0px;
+}
+a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+a:hover {  
+    /* Simples estilização de background para mostrar sua área de contato, delimitar 
+    o espaço de cada elemento.   */
+    background: rgba(94, 91, 91, 0.5);
+} 
+#logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+#Header { 
+    /* Estilização da estrutura header, manipulando a posição dos elementos
+    dentro da mesma, ou seja, englobando desde a Logo da marca até a navegação.*/  
+    box-sizing: border-box; 
+    height: 70px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #c0bdbd;
+}
+#Menu {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+#Menu a {
+    /* É falado com cada elemento "a" para aumentar sua área de contato
+    para supercificies de touch.*/
+    display: block;
+    padding: .5rem;
+}
+#btn-mobile { 
+    display: none;
+}
+
+/*Estilização do botão do menu com media query. O botão será visível quando a tela estiver
+com seu tamanho abaixo de 600px. Acima de 600px, o botão é oculto e seus elementos mostrados.
+ Os elementos dentro do menu também serão ocultados e somente mostrandos quando a ação do botão
+for feita.*/
+
+@media screen and (max-width: 600px) {
+     /*Quando o botão for ativo, seu modo é alterado e passa a ser visível
+        trazendo também seus elementos que irão ser mostrados com uma animação
+        descendo para baixo e cobrirá a tela.*/
+    #Menu{
+        display: block;
+        position: absolute;
+        width: 100%;
+        top: 70px;
+        right: 0px;
+        background: #c0bdbd;
+        z-index: 1000;
+        transition: .6s;
+        height: 0px;
+        visibility: hidden;
+        overflow-y: hidden;
+    }
+    #Nav.active #Menu{
+        /*É utilizado o método calc() para subtrair o tamanho da tela pois caso contrário
+        é somado o valor da altura mais 70px no topo.  */
+        height: calc(100vh - 70px); 
+        visibility: visible;
+        overflow-y: auto;
+    }
+    #Menu a {
+        padding: 1rem 0;
+        margin: 0 1rem;
+        border-bottom: 2px solid rgba(0, 0, 0, .05);
+    }
+    #btn_mobile{
+        display: flex;
+        padding: .5rem 1rem;
+        font-size: 1rem;
+        border: none;
+        background: none;
+        cursor: pointer;
+        gap: .5rem;
+    }
+    /*É feita uma animação típica para o botão hamburguer para sinalizar quando está em uso.*/
+    #Hamburguer{
+        color: rgb(0, 0, 0);
+        border-top: 2px solid;
+        width: 20px;
+    }
+    #Hamburguer::after, #Hamburguer::before{
+        content: '';
+        display: block;
+        width: 20px;
+        height: 2px;
+        background: currentColor;
+        margin-top: 5px;
+        transition: .3s;
+        position: relative;
+    }
+    #Nav.active #Hamburguer{
+        border-top-color: transparent;  
+    }
+    #Nav.active #Hamburguer::before{
+        transform: rotate(135deg);
+    }
+    #Nav.active #Hamburguer::after{
+        transform: rotate(-135deg);
+        top: -7px;
+    }
+
+}
